@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateEventRequest;
 use App\Http\Requests\UpdateEventRequest;
-use App\Models\Country;
 use App\Models\Event;
-use App\Models\Tag;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -60,9 +58,8 @@ class EventController extends Controller
      */
     public function edit(Event $event): View
     {
-        $countries = Country::all();
-        $tags = Tag::all();
-        return view('events.edit', compact('countries', 'tags', 'event'));
+
+        return view('events.edit', compact('event'));
     }
 
     /**
@@ -78,7 +75,6 @@ class EventController extends Controller
 
         $data['slug'] = Str::slug($request->title);
         $event->update($data);
-        $event->tags()->sync($request->tags);
         return to_route('events.index');
     }
 
@@ -88,7 +84,6 @@ class EventController extends Controller
     public function destroy(Event $event): RedirectResponse
     {
         Storage::delete($event->image);
-        $event->tags()->detach();
         $event->delete();
         return to_route('events.index');
     }
