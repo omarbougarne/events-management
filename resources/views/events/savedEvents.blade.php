@@ -20,9 +20,6 @@
                                 Start Date
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Country
-                            </th>
-                            <th scope="col" class="px-6 py-3">
                                 Action
                             </th>
                         </tr>

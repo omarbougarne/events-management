@@ -18,12 +18,6 @@
                     <x-nav-link :href="route('events.index')" :active="request()->routeIs('events.index')">
                         {{ __('Events') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('galleries.index')" :active="request()->routeIs('galleries.index')">
-                        {{ __('Gallery') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('likedEvents')" :active="request()->routeIs('likedEvents')">
-                        {{ __('Liked Events') }}
-                    </x-nav-link>
                     <x-nav-link :href="route('savedEvents')" :active="request()->routeIs('savedEvents')">
                         {{ __('Saved Events') }}
                     </x-nav-link>

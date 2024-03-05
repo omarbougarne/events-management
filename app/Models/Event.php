@@ -37,24 +37,11 @@ class Event extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function country(): BelongsTo
-    {
-        return $this->belongsTo(Country::class);
-    }
-    public function city(): BelongsTo
-    {
-        return $this->belongsTo(City::class);
-    }
-
     public function comments(): HasMany
     {
         return $this->hasMany(Comment::class);
     }
 
-    public function likes(): HasMany
-    {
-        return $this->hasMany(Like::class);
-    }
 
     public function savedEvents(): HasMany
     {
@@ -64,15 +51,5 @@ class Event extends Model
     public function attendings(): HasMany
     {
         return $this->hasMany(Attending::class);
-    }
-
-    public function tags(): BelongsToMany
-    {
-        return $this->belongsToMany(Tag::class);
-    }
-
-    public function hasTag($tag)
-    {
-        return $this->tags->contains($tag);
     }
 }

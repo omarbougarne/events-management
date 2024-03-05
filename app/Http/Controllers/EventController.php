@@ -19,19 +19,19 @@ class EventController extends Controller
      * Display a listing of the resource.
      */
     public function index(): View
-    {
-        $events = Event::with('country')->get();
-        return view('events.index', compact('events'));
-    }
+{
+    $events = Event::all();
+    return view('events.index', compact('events'));
+}
+
 
     /**
      * Show the form for creating a new resource.
      */
     public function create(): View
     {
-        $countries = Country::all();
-        $tags = Tag::all();
-        return view('events.create', compact('countries', 'tags'));
+
+        return view('events.create');
     }
 
     /**

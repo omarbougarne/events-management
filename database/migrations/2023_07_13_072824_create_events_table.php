@@ -23,8 +23,6 @@ return new class extends Migration
             $table->string('address');
             $table->integer('num_tickets');
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('country_id')->constrained();
-            $table->foreignId('city_id')->constrained();
             $table->timestamps();
         });
     }
